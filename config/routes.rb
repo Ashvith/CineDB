@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :movies
+  resources :movies_infos
   # Home page
   root 'home#index'
   #About page

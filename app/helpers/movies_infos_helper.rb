@@ -1,0 +1,2 @@
+module MoviesInfosHelper
+end

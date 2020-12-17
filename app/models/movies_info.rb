@@ -1,4 +1,4 @@
-class Movie
+class MoviesInfo
   include Mongoid::Document
   include Mongoid::Timestamps
   field :movie_id, type: String
