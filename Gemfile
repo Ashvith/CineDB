@@ -12,6 +12,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'mongoid'
 gem 'bson_ext'
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'will_paginate_mongoid'
+gem 'will_paginate-bootstrap4'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

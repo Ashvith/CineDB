@@ -7,8 +7,8 @@
     <tr>
       <th>Movie</th>
       <th>Title</th>
-      <th>Cast</th>
-      <th>Crew</th>
+      <!--<th>Cast</th>-->
+      <!--<th>Crew</th>-->
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,8 +18,8 @@
       <tr>
         <td><%= movies_info.movie_id %></td>
         <td><%= movies_info.title %></td>
-        <td><%= movies_info.cast %></td>
-        <td><%= movies_info.crew %></td>
+        <!--<td><%= movies_info.cast %></td>-->
+        <!--<td><%= movies_info.crew %></td>-->
         <td><%= link_to 'Show', movies_info %></td>
         <td><%= link_to 'Edit', edit_movies_info_path(movies_info) %></td>
         <td><%= link_to 'Destroy', movies_info, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -27,6 +27,8 @@
     <% end %>
   </tbody>
 </table>
+
+<%= will_paginate @movies_info %>
 
 <br>
 
