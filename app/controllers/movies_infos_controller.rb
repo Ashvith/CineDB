@@ -5,7 +5,10 @@ class MoviesInfosController < ApplicationController
   # GET /movies_infos.json
   def index
     # @movies_infos = MoviesInfo.all
-    @movies_infos = MoviesInfo.paginate(page: params[:page], per_page:  10)
+    # default value
+    # @movies_infos = MoviesInfo.order(created_at: :desc).page(params[:page])
+    # kaminari paginate
+    @movies_infos = MoviesInfo.paginate(page: params[:page], per_page: 50)
   end
 
   # GET /movies_infos/1

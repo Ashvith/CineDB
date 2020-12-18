@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Movies Infos</h1>
+<h1>List of Movies</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Movie</th>
+      <!--<th>Movie</th>-->
       <th>Title</th>
       <!--<th>Cast</th>-->
       <!--<th>Crew</th>-->
@@ -16,20 +16,31 @@
   <tbody>
     <% @movies_infos.each do |movies_info| %>
       <tr>
-        <td><%= movies_info.movie_id %></td>
-        <td><%= movies_info.title %></td>
+        <!--<td><%= movies_info.movie_id %></td>-->
+        <td><%= link_to movies_info.title, movies_info %></td>
+        <%
+=begin%>
+ <td><%= movies_info.title %></td> 
+<%
+=end%>
         <!--<td><%= movies_info.cast %></td>-->
         <!--<td><%= movies_info.crew %></td>-->
-        <td><%= link_to 'Show', movies_info %></td>
-        <td><%= link_to 'Edit', edit_movies_info_path(movies_info) %></td>
-        <td><%= link_to 'Destroy', movies_info, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '✏', edit_movies_info_path(movies_info) %></td>
+        <td><%= link_to '❌', movies_info, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= will_paginate @movies_info %>
+<%= will_paginate @movies_info, list_classes: %w(pagination justify-content-center) %>
+
+<!--kaminari paginate-->
+<%
+=begin%>
+ <%= paginate @movies_infos, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm", nav_class: "d-inline-b" %> 
+<%
+=end%>
 
 <br>
 
-<%= link_to 'New Movies Info', new_movies_info_path %>
+<%= link_to 'Add a new movie', new_movies_info_path %>
