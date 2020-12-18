@@ -15,9 +15,6 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'will_paginate_mongoid'
 gem 'will_paginate-bootstrap4'
 gem 'will_paginate-bootstrap'
-# gem 'kaminari'
-# gem 'kaminari-mongoid'
-# gem 'bootstrap4-kaminari-views'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

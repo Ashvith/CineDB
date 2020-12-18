@@ -1,3 +1,4 @@
+<div class="container">
 <p id="notice"><%= notice %></p>
 
 <h1>List of Movies</h1>
@@ -32,15 +33,12 @@
   </tbody>
 </table>
 
-<%= will_paginate @movies_info, list_classes: %w(pagination justify-content-center) %>
-
-<!--kaminari paginate-->
-<%
-=begin%>
- <%= paginate @movies_infos, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm", nav_class: "d-inline-b" %> 
-<%
-=end%>
+<%= will_paginate @movies_info, 
+    list_classes: %w(pagination justify-content-center), 
+    inner_window: 1, outer_window: 1, previous_label: '&lt;', 
+    next_label: '&gt;'%>
 
 <br>
 
 <%= link_to 'Add a new movie', new_movies_info_path %>
+</div>

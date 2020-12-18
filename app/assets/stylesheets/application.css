@@ -13,7 +13,8 @@
  *= require_tree .
  *= require_self
  */
-@media only screen and (max-width: 600px) {
+
+ /*  @media only screen and (max-width: 600px) {
   .pagination li {
     display: none;
   }
@@ -29,7 +30,7 @@
   .pagination li:nth-last-child(2) {
     display: inline;
   }
-}
+} */
 
 a {
   text-decoration: none;
