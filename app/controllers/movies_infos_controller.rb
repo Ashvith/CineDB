@@ -1,15 +1,21 @@
+require 'json'
+
 class MoviesInfosController < ApplicationController
   before_action :set_movies_info, only: [:show, :edit, :update, :destroy]
 
   # GET /movies_infos
   # GET /movies_infos.json
   def index
-    @movies_infos = MoviesInfo.paginate(page: params[:page], per_page: 50)
+    @movies_infos = MoviesInfo.paginate(page: params[:page], per_page: 20)
   end
 
   # GET /movies_infos/1
   # GET /movies_infos/1.json
   def show
+    @array1 = JSON.parse(@movies_info.cast)
+    @gender = {"0"=>"Unknown", "1"=>"Female", "2"=>"Male"}
+
+    @array2  = JSON.parse(@movies_info.crew)
   end
 
   # GET /movies_infos/new

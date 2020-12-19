@@ -1,24 +1,71 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Movie:</strong>
-  <%= @movies_info.movie_id %>
-</p>
+    <%= link_to movies_infos_path do %>
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-square" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+        <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
+    </svg>
+    <span>Back</span>
+    <% end %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @movies_info.title %>
-</p>
+    <p>
+        <!--<strong>Movie:</strong>-->
+        <!--<%= @movies_info.movie_id %>-->
+    </p>
 
-<p>
-  <strong>Cast:</strong>
-  <%= @movies_info.cast %>
-</p>
+    <p>
+        <!--<strong>Title:</strong>-->
+    <h2><%= @movies_info.title %></h2>
+    </p>
 
-<p>
-  <strong>Crew:</strong>
-  <%= @movies_info.crew %>
-</p>
+    <p>
+    <h5>Cast:</h5>
+    <!--
+        <%= @movies_info.cast %>-->
+    <div class="row">
+        <% @array1.each do |hashes| %>
+        <div class="card col-md-6 col-lg-4 col-xl-3">
+            <div class="card-body">
+                <% hashes.each do |key, value| %>
+                <% next unless ["cast_id", "credit_id", "id", "order"].all? { |x| key!=x} %>
+                <% value = @gender[value.to_s] if key=="gender" %>
+                <div>
+                    <span style="font-weight:700;"><%= "#{key.camelize}:" %></span>
+                    <%= "#{value}" %>
+                </div>
+                <% end %>
+            </div>
+        </div>
+        <% end %>
+    </div>
+    </p>
 
-<%= link_to 'Edit', edit_movies_info_path(@movies_info) %> |
-<%= link_to 'Back', movies_infos_path %>
+    <p>
+    <h5>Crew:</h5>
+    <!--<%= @movies_info.crew %>-->
+
+    <div class="row">
+        <% @array2.each do |hashes| %>
+        <div class="card col-xs-12 col-md-6 col-lg-4 col-xl-3">
+            <div class="card-body">
+                <% hashes.each do |key, value| %>
+                <% next unless ["cast_id", "credit_id", "id", "order"].all? { |x| key!=x} %>
+                <% value = @gender[value.to_s] if key=="gender" %>
+                <div>
+                    <span style="font-weight:700;"><%= "#{key.camelize}:" %></span>
+                    <%= "#{value}" %>
+                </div>
+                <% end %>
+            </div>
+        </div>
+        <% end %>
+    </div>
+
+    <%= link_to edit_movies_info_path(@movies_info) do%>
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-pen" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M13.498.795l.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z" />
+    </svg>
+    <span>Edit</span>
+    <% end %>
+</div>
